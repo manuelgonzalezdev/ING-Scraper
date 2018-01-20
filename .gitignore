@@ -4,3 +4,5 @@
 ing-scraper/client_data\.py
 
 ing-scraper/test\.py
+
+*.pyc
