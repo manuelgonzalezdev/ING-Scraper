@@ -173,13 +173,32 @@ def request_auth_cookies(ticket):
     return auth_cookies
 
 def get_client(auth_cookies):
-    return "TODO"
+    log("Requesting client data")
+    url = ENDPOINTS["CLIENT"]
+    headers = HEADERS
+    cookies = auth_cookies
+    response = requests.get(url, headers = headers, cookies = cookies)
+    response_json = json.loads(response.text)
+    return response_json
 
 def get_products(auth_cookies):
-    return "TODO"
+    log("Requesting products data")
+    url = ENDPOINTS["PRODUCTS"]
+    headers = HEADERS
+    cookies = auth_cookies
+    response = requests.get(url, headers = headers, cookies = cookies)
+    response_json = json.loads(response.text)
+    return response_json
 
 def get_movements(auth_cookies, product, from_date, to_date):
-    return "TODO"
+    log("Requesting product movements")
+    url = ENDPOINTS["PRODUCTS"]
+    url = url + "/%s/movements?fromDate=%s&toDate=%s&limit=100&offset=0" % (product, from_date, to_date)
+    headers = HEADERS
+    cookies = auth_cookies
+    response = requests.get(url, headers = headers, cookies = cookies)
+    response_json = json.loads(response.text)
+    return response_json
 
 
 # UTILS
