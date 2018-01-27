@@ -162,10 +162,9 @@ def request_auth_cookies(ticket):
     log("Requesting auth cookies")
     url = ENDPOINTS["POST_AUTH"]
     headers = HEADERS.copy()
-    headers['Content-Type'] : 'application/x-www-form-urlencoded; charset=UTF-8'
+    headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
     payload = "ticket=%s&device=desktop" % ticket
     response = requests.post(url, headers = headers, data = payload)
-    
     cookies = response.cookies.get_dict()
     auth_cookies = {
         "Ucookie": cookies["Ucookie"],
