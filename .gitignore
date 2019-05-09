@@ -1,8 +1,13 @@
 
+# VS Code
 *.code-workspace
 
+# Data
 ing-scraper/client_data\.py
 
 ing-scraper/test\.py
 
+# Python 
 *.pyc
+.python-version
+
